@@ -256,17 +256,29 @@
   .chip .lvl{font-size:.76rem; color:var(--ink-muted); font-weight:400;}
 
   /* ---------- portfolio ---------- */
-  .portfolio-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  .portfolio-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
   .portfolio-card{
     background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-    padding:26px; display:flex; flex-direction:column; gap:14px; box-shadow:var(--shadow-sm);
+    overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow-sm);
     transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   }
-  .portfolio-card:hover{transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:color-mix(in srgb, var(--pink) 30%, var(--line));}
-  .portfolio-card h3{font-size:1.05rem;}
-  .portfolio-card p{color:var(--ink-muted); font-size:.9rem; flex:1;}
+  .portfolio-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:color-mix(in srgb, var(--pink) 30%, var(--line));}
+  .portfolio-cover{
+    position:relative; aspect-ratio:16/10; flex:none;
+    background:linear-gradient(135deg, var(--navy), var(--navy-strong));
+    display:flex; align-items:center; justify-content:center;
+  }
+  .portfolio-cover .icon{width:36px; height:36px; color:var(--pink); stroke-width:1.5; opacity:.95;}
+  .portfolio-cover-tag{
+    position:absolute; top:12px; left:12px; font-size:.66rem; font-weight:600; letter-spacing:.03em;
+    background:rgba(255,255,255,.14); color:#fff; padding:4px 10px; border-radius:999px;
+  }
+  .portfolio-card-body{padding:20px 22px 22px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .portfolio-card-body h3{font-size:1rem;}
+  .portfolio-meta{font-family:var(--font-mono); font-size:.72rem; color:var(--ink-faint);}
+  .portfolio-card-body p:not(.portfolio-meta){color:var(--ink-muted); font-size:.87rem; flex:1;}
   .portfolio-status{
-    align-self:flex-start; display:flex; align-items:center; gap:6px;
+    align-self:flex-start; display:flex; align-items:center; gap:6px; margin-top:4px;
     font-family:var(--font-mono); font-size:.7rem; letter-spacing:.04em; text-transform:uppercase;
     color:var(--ink-faint); background:var(--surface-2); border-radius:var(--radius-sm); padding:5px 10px;
   }
@@ -311,7 +323,7 @@
     .stat-grid{grid-template-columns:repeat(2,1fr);}
     .index-grid{grid-template-columns:repeat(2,1fr);}
     .placard-grid{grid-template-columns:1fr;}
-    .portfolio-grid{grid-template-columns:1fr;}
+    .portfolio-grid{grid-template-columns:repeat(2,1fr);}
     .contact-grid{grid-template-columns:1fr;}
   }
   @media (max-width:640px){
@@ -326,6 +338,7 @@
     .hero{padding-top:32px;}
     .hero-card{padding:24px;}
     .hero-graphic{width:150px; height:150px;}
+    .portfolio-grid{grid-template-columns:1fr;}
     .stat-grid{grid-template-columns:1fr 1fr;}
     .index-grid{grid-template-columns:1fr;}
     .skill-row{grid-template-columns:1fr; gap:8px;}
@@ -693,32 +706,62 @@
         <span class="icon-chip pink"><svg class="icon"><use href="#i-folder"/></svg></span>
         <div><span class="eyebrow">Selected work</span><h2>Portfolio</h2></div>
       </div>
-      <p class="sec-sub">A growing collection of training materials, assessments, and safety communication work — organized here as each project is finalized for sharing.</p>
+      <p class="sec-sub">A closer look at the training materials, assessments, and inspections behind the resume — with more context and detail than a CV format allows.</p>
 
       <div class="portfolio-grid">
         <div class="portfolio-card">
-          <span class="icon-chip navy"><svg class="icon"><use href="#i-book"/></svg></span>
-          <h3>Safety Training &amp; Induction Materials</h3>
-          <p>Toolbox talks, onboarding guides, and PSM training decks prepared for site safety briefings.</p>
-          <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          <div class="portfolio-cover"><span class="portfolio-cover-tag">Training Materials</span><svg class="icon"><use href="#i-book"/></svg></div>
+          <div class="portfolio-card-body">
+            <h3>Site Procedure &amp; Safety Training Materials</h3>
+            <p class="portfolio-meta">Momentive Performance Materials &middot; 2024</p>
+            <p>Reviewed Global Procedures against Thai law and prepared PSM and site safety training materials, contributing to Safety Data Sheet (SDS) improvements for the EHS department.</p>
+            <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          </div>
         </div>
         <div class="portfolio-card">
-          <span class="icon-chip pink"><svg class="icon"><use href="#i-chart"/></svg></span>
-          <h3>Risk &amp; Ergonomic Assessments</h3>
-          <p>Workplace ergonomic evaluations and hazard risk assessments from fieldwork and site visits.</p>
-          <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          <div class="portfolio-cover"><span class="portfolio-cover-tag">Risk Assessment</span><svg class="icon"><use href="#i-chart"/></svg></div>
+          <div class="portfolio-card-body">
+            <h3>Ergonomic Risk Assessment</h3>
+            <p class="portfolio-meta">CPRAM Co., Ltd. &middot; 2023</p>
+            <p>Assessed ergonomic hazards on the production floor and identified workstation adjustments to reduce musculoskeletal risk for line workers.</p>
+            <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          </div>
         </div>
         <div class="portfolio-card">
-          <span class="icon-chip navy"><svg class="icon"><use href="#i-check"/></svg></span>
-          <h3>Compliance Audits &amp; Inspection Reports</h3>
-          <p>Checklists and findings from facility, forklift, and warehouse safety inspections.</p>
-          <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          <div class="portfolio-cover"><span class="portfolio-cover-tag">Compliance Audit</span><svg class="icon"><use href="#i-check"/></svg></div>
+          <div class="portfolio-card-body">
+            <h3>Forklift &amp; Warehouse Safety Inspection</h3>
+            <p class="portfolio-meta">CP ALL Public Co., Ltd. &middot; 2023</p>
+            <p>Inspected forklift operating practices and warehouse shelving arrangements against safe material-handling and storage standards.</p>
+            <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          </div>
         </div>
         <div class="portfolio-card">
-          <span class="icon-chip pink"><svg class="icon"><use href="#i-grid"/></svg></span>
-          <h3>Safety Awareness Design</h3>
-          <p>Posters, infographics, and short videos promoting safe work practices, designed in Canva and CapCut.</p>
-          <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          <div class="portfolio-cover"><span class="portfolio-cover-tag">Public Health</span><svg class="icon"><use href="#i-globe"/></svg></div>
+          <div class="portfolio-card-body">
+            <h3>Food Sanitation &amp; Pollution Control Inspection</h3>
+            <p class="portfolio-meta">Khon Kaen Municipality &middot; 2023</p>
+            <p>Evaluated food sanitation practices and pollution management measures for goods sold in public spaces across the municipality.</p>
+            <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-cover"><span class="portfolio-cover-tag">Creative Design</span><svg class="icon"><use href="#i-grid"/></svg></div>
+          <div class="portfolio-card-body">
+            <h3>Safety Awareness Design Work</h3>
+            <p class="portfolio-meta">Personal &amp; academic projects</p>
+            <p>Posters, infographics, and short videos promoting safe work practices, produced using Canva and CapCut.</p>
+            <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-cover"><span class="portfolio-cover-tag">Certification</span><svg class="icon"><use href="#i-award"/></svg></div>
+          <div class="portfolio-card-body">
+            <h3>EHS Certifications &amp; Standards Training</h3>
+            <p class="portfolio-meta">2022 &ndash; 2024</p>
+            <p>Hands-on training across ISO 14001, ISO 50001, and ISO 45001 integrated management systems, plus firefighting, first aid, and chemical spill response.</p>
+            <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+          </div>
         </div>
       </div>
 
