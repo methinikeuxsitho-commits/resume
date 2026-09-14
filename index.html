@@ -169,7 +169,7 @@
   .stat span{font-size:.8rem; color:var(--ink-muted); line-height:1.4;}
 
   /* ---------- section index (home quick links) ---------- */
-  .index-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .index-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
   .index-card{
     background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
     padding:24px 22px; display:flex; flex-direction:column; gap:14px; box-shadow:var(--shadow-sm);
@@ -251,6 +251,23 @@
   .chip .icon{width:16px; height:16px; color:var(--ink-faint);}
   .chip .lvl{font-size:.76rem; color:var(--ink-muted); font-weight:400;}
 
+  /* ---------- portfolio ---------- */
+  .portfolio-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  .portfolio-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px; display:flex; flex-direction:column; gap:14px; box-shadow:var(--shadow-sm);
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .portfolio-card:hover{transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:color-mix(in srgb, var(--pink) 30%, var(--line));}
+  .portfolio-card h3{font-size:1.05rem;}
+  .portfolio-card p{color:var(--ink-muted); font-size:.9rem; flex:1;}
+  .portfolio-status{
+    align-self:flex-start; display:flex; align-items:center; gap:6px;
+    font-family:var(--font-mono); font-size:.7rem; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--ink-faint); background:var(--surface-2); border-radius:var(--radius-sm); padding:5px 10px;
+  }
+  .portfolio-status .dot{width:6px; height:6px; border-radius:50%; background:var(--pink); flex:none;}
+
   /* ---------- contact ---------- */
   .contact-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px;}
   .contact-card{
@@ -289,6 +306,7 @@
     .stat-grid{grid-template-columns:repeat(2,1fr);}
     .index-grid{grid-template-columns:repeat(2,1fr);}
     .placard-grid{grid-template-columns:1fr;}
+    .portfolio-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;}
   }
   @media (max-width:640px){
@@ -338,6 +356,7 @@
     <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5h6.5A2.5 2.5 0 0 1 13 7v13a2 2 0 0 0-2-2H4Z"/><path d="M20 4.5h-6.5A2.5 2.5 0 0 0 11 7v13a2 2 0 0 1 2-2h7Z"/></symbol>
     <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12Z"/><circle cx="12" cy="12" r="3.2"/></symbol>
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v3.5a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5V15"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2Z"/></symbol>
   </defs>
 </svg>
 
@@ -356,6 +375,7 @@
       <li><a href="#education" data-nav="education"><svg class="icon"><use href="#i-cap"/></svg>Education</a></li>
       <li><a href="#experience" data-nav="experience"><svg class="icon"><use href="#i-briefcase"/></svg>Experience</a></li>
       <li><a href="#skills" data-nav="skills"><svg class="icon"><use href="#i-chart"/></svg>Skills</a></li>
+      <li><a href="#portfolio" data-nav="portfolio"><svg class="icon"><use href="#i-folder"/></svg>Portfolio</a></li>
       <li><a href="#contact" data-nav="contact"><svg class="icon"><use href="#i-mail"/></svg>Contact</a></li>
     </ul>
   </div>
@@ -431,6 +451,12 @@
           <span class="icon-chip navy"><svg class="icon"><use href="#i-chart"/></svg></span>
           <h3>Skills &amp; Awards</h3>
           <p>Language and computer skills, professional certificates, and academic recognitions.</p>
+          <span class="go">Learn more <svg class="icon"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="index-card" href="#portfolio">
+          <span class="icon-chip pink"><svg class="icon"><use href="#i-folder"/></svg></span>
+          <h3>Portfolio</h3>
+          <p>Training materials, assessments, and safety communication work, organized by category.</p>
           <span class="go">Learn more <svg class="icon"><use href="#i-arrow"/></svg></span>
         </a>
         <a class="index-card" href="#contact">
@@ -642,6 +668,51 @@
   </div>
 </section>
 
+<section id="portfolio" class="view">
+  <div class="section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="icon-chip pink"><svg class="icon"><use href="#i-folder"/></svg></span>
+        <div><span class="eyebrow">Selected work</span><h2>Portfolio</h2></div>
+      </div>
+      <p class="sec-sub">A growing collection of training materials, assessments, and safety communication work — organized here as each project is finalized for sharing.</p>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <span class="icon-chip navy"><svg class="icon"><use href="#i-book"/></svg></span>
+          <h3>Safety Training &amp; Induction Materials</h3>
+          <p>Toolbox talks, onboarding guides, and PSM training decks prepared for site safety briefings.</p>
+          <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+        </div>
+        <div class="portfolio-card">
+          <span class="icon-chip pink"><svg class="icon"><use href="#i-chart"/></svg></span>
+          <h3>Risk &amp; Ergonomic Assessments</h3>
+          <p>Workplace ergonomic evaluations and hazard risk assessments from fieldwork and site visits.</p>
+          <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+        </div>
+        <div class="portfolio-card">
+          <span class="icon-chip navy"><svg class="icon"><use href="#i-check"/></svg></span>
+          <h3>Compliance Audits &amp; Inspection Reports</h3>
+          <p>Checklists and findings from facility, forklift, and warehouse safety inspections.</p>
+          <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+        </div>
+        <div class="portfolio-card">
+          <span class="icon-chip pink"><svg class="icon"><use href="#i-grid"/></svg></span>
+          <h3>Safety Awareness Design</h3>
+          <p>Posters, infographics, and short videos promoting safe work practices, designed in Canva and CapCut.</p>
+          <span class="portfolio-status"><span class="dot"></span>Samples coming soon</span>
+        </div>
+      </div>
+
+      <div class="contact-note" style="margin-top:16px;">
+        <h3>Want to see specific work samples?</h3>
+        <p>Detailed materials are being organized for sharing — reach out directly and I'm happy to send relevant documents.</p>
+        <a href="#contact" class="btn btn-ghost btn-on-navy"><svg class="icon"><use href="#i-mail"/></svg>Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="view">
   <div class="section">
     <div class="container">
@@ -685,7 +756,7 @@
 
 <script>
   (function(){
-    var views = ['home','education','experience','skills','contact'];
+    var views = ['home','education','experience','skills','portfolio','contact'];
     var toggle = document.getElementById('navToggle');
     var nav = document.getElementById('docNav');
 
